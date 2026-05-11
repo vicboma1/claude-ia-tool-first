@@ -2,6 +2,7 @@ package com.example.demo.user;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+import reactor.core.publisher.Mono;
 
 @RestController
 public class UserController {
@@ -13,7 +14,7 @@ public class UserController {
     }
 
     @GetMapping("/api/users/export")
-    public String exportUsers() {
+    public Mono<String> exportUsers() {
         return userService.exportUsersCsv();
     }
 }
