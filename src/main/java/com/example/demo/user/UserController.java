@@ -1,7 +1,10 @@
 package com.example.demo.user;
 
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.mvc.method.annotation.StreamingResponseBody;
 
 @RestController
 public class UserController {
@@ -12,8 +15,10 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping("/api/users/export")
-    public String exportUsers() {
-        return userService.exportUsersCsv();
+    @GetMapping(value = "/api/users/export", produces = "text/csv;charset=UTF-8")
+    public ResponseEntity<StreamingResponseBody> exportUsers() {
+        return ResponseEntity.ok()
+                .contentType(MediaType.parseMediaType("text/csv;charset=UTF-8"))
+                .body(userService.exportUsersCsv());
     }
 }
