@@ -1,0 +1,5 @@
+steps:
+  - search_code
+  - apply_patch
+  - run_tests
+  - run_lint

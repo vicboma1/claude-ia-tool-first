@@ -1,0 +1,11 @@
+{
+  "env": {
+    "GITLAB_TOKEN": "glpat-BGqEabfwUgAOEIKhg4v7KG86MQp1Ojd1CA.01.0y1bv51hn"
+  },
+  "permissions": {
+    "allow": [
+      "Bash(git *)",
+      "Bash(docker compose *)"
+    ]
+  }
+}
